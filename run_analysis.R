@@ -1,5 +1,6 @@
 # run_analysis.R   Getting Data Project
-setwd("~/coursera/gettingdata/gettingdataproject/UCI HAR Dataset")
+
+# setwd("~/coursera/gettingdata/gettingdataproject/UCI HAR Dataset")
 library(dplyr)
 library(tidyr)
 
@@ -45,7 +46,6 @@ subdf <- cbind(fulldf[1], fulldf[2], tempsubdf)
 
 # Objective 5: From the resulting data set, creates a second, independent tidy data set with the
 # average of each variable for each activity and each subject
-
 tidydataset <-subdf %>%
               group_by(Subject, Activity, add = FALSE) %>%
               summarise_each(funs(mean))
@@ -54,4 +54,4 @@ tidydataset <-subdf %>%
 write.table(tidydataset, "tidydata.txt", sep = "\t", row.name=FALSE)
 
 # example of how to read the tidydata.txt file into R
-testread<-read.table("tidydata.txt", sep = "\t", header = TRUE)
+#  testread<-read.table("tidydata.txt", sep = "\t", header = TRUE)
